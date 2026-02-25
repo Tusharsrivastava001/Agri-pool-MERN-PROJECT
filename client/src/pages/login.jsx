@@ -15,7 +15,7 @@ export default function Login() {
     setMessage({ text: "", type: "" });
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", form);
+      const res = await axios.post("https://agri-pool-mern-project.onrender.com/api/auth/login", form);
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
         
