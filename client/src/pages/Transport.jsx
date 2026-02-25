@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { Truck, MapPin, Package, Navigation, Send, Info } from 'lucide-react';
 
 const Transport = () => {
@@ -20,7 +20,7 @@ const Transport = () => {
     const userId = localStorage.getItem("userId");
 
     try {
-      const res = await axios.post("https://agri-pool-mern-project.onrender.com/api/transport/request", {
+      const res = await api.post("/api/transport/request", {
         userId,
         ...formData
       });

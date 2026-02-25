@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { Mail, Phone, MapPin, Send, MessageSquare, User, AtSign, Bookmark } from 'lucide-react';
 
 const Contact = () => {
@@ -20,7 +20,7 @@ const Contact = () => {
     setStatus({ loading: true, message: '', type: '' });
 
     try {
-      const res = await axios.post("https://agri-pool-mern-project.onrender.com/api/contact/submit", formData);
+      const res = await api.post("/api/contact/submit", formData);
       if (res.data.success) {
         setStatus({ loading: false, message: "Message sent! We'll get back to you soon.", type: 'success' });
         setFormData({ name: '', email: '', subject: '', message: '' });

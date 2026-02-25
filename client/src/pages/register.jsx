@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import { User, Phone, Lock, UserCog, ArrowRight, Leaf, Users, CheckCircle } from "lucide-react";
 
 export default function Register() {
@@ -15,7 +15,7 @@ export default function Register() {
     setMessage({ text: "", type: "" });
 
     try {
-      const res = await axios.post("https://agri-pool-mern-project.onrender.com/api/auth/register", form);
+      const res = await api.post("/api/auth/register", form);
       setMessage({ 
         text: res.data.message || "Account created! You can now login.", 
         type: "success" 

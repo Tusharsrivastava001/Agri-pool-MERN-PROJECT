@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import { Phone, Lock, ArrowRight, Leaf, ShieldCheck } from "lucide-react";
 
 export default function Login() {
@@ -15,7 +15,7 @@ export default function Login() {
     setMessage({ text: "", type: "" });
 
     try {
-      const res = await axios.post("https://agri-pool-mern-project.onrender.com/api/auth/login", form);
+      const res = await api.post("/api/auth/login", form);
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
         

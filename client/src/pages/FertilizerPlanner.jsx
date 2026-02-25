@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import { Sprout, Ruler, Droplets, Sun, ChevronRight, CheckCircle2, FlaskConical } from "lucide-react";
 
 export default function FertilizerPlanner() {
@@ -24,7 +24,7 @@ export default function FertilizerPlanner() {
     const userId = localStorage.getItem("userId");
 
     try {
-      const res = await axios.post("https://agri-pool-mern-project.onrender.com/api/fertilizer/create", {
+      const res = await api.post("/api/fertilizer/create", {
         userId,
         ...form
       });
